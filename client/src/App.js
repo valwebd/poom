@@ -1,23 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import { Typography, AppBar } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import VideoPlayer from './components/VideoPlayer';
+import Sidebar from './components/Sidebar';
+import Notifications from './components/Notifications';
+
+const useStyles = makeStyles((theme) => ({
+  appBar: {
+    borderRadius: 15,
+    margin: '30px 100px',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 'full',
+    border: '2px solid black',
+
+    [theme.breakpoints.down('xs')]: {
+      width: '90%',
+    },
+  },
+  image: {
+    marginLeft: '15px',
+  },
+  wrapper: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    width: '100%',
+  },
+}));
 
 function App() {
+  const classes = useStyles();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classes.wrapper}>
+      <AppBar className={classes.appBar} position='static' color='inherit'>
+        <Typography variant='h2' align='center'>
+          Poom
+        </Typography>
+      </AppBar>
+      <VideoPlayer />
+      <Sidebar>
+        <Notifications />
+      </Sidebar>
     </div>
   );
 }
