@@ -6,14 +6,14 @@ import Notifications from './components/Notifications';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
-    borderRadius: 15,
+    borderRadius: 10,
     margin: '30px 100px',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     width: 'full',
-    border: '2px solid black',
+    border: '2px solid blue',
 
     [theme.breakpoints.down('xs')]: {
       width: '90%',
